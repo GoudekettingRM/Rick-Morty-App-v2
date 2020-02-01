@@ -5,9 +5,9 @@ import "./home.css";
 export default function Home(props) {
   return (
     <div className="welcomePage">
-      <h1 className="websiteTitle">
+      <h4 className="pageTitle">
         Welcome to this Rick and Morty interactive database!
-      </h1>
+      </h4>
       <img
         className="welcomePageImg"
         alt="Open your eyes, Morty!"

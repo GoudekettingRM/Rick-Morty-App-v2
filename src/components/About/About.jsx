@@ -5,10 +5,10 @@ import "./about.css";
 export default function About(props) {
   return (
     <div>
-      <p>About the makers of this app:</p>
+      <h4 className="pageTitle">About the makers of this app:</h4>
       <div className="about">
         <div className="aboutCard">
-          <h1>Glootie</h1>
+          <h5>Glootie</h5>
           <img
             className="aboutGlootieImg"
             alt="Glootie, one of the co-creators of this app"
@@ -19,7 +19,7 @@ export default function About(props) {
           </p>
         </div>
         <div className="aboutCard">
-          <h1>Robin</h1>
+          <h5>Robin</h5>
           <img
             className="aboutRobinImg"
             alt="Robin, one of the co-creators of this app"
