@@ -1,4 +1,5 @@
 import React from "react";
+import creator from "../../creator.jpg";
 import "./about.css";
 
 export default function About(props) {
@@ -19,11 +20,11 @@ export default function About(props) {
         </div>
         <div className="aboutCard">
           <h1>Robin</h1>
-          {/* <img
+          <img
             className="aboutRobinImg"
             alt="Robin, one of the co-creators of this app"
             src={creator}
-          /> */}
+          />
           <p className="aboutCaption">
             This is Robin, the second of the two proud creators of this app!
           </p>
