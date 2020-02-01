@@ -2,9 +2,7 @@ import React from "react";
 import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
 import { LinkContainer } from "react-router-bootstrap";
-import Form from "react-bootstrap/Form";
-import FormControl from "react-bootstrap/FormControl";
-import Button from "react-bootstrap/Button";
+import { NavDropdown } from "react-bootstrap";
 
 export default function Header(props) {
   return (
@@ -12,24 +10,22 @@ export default function Header(props) {
       <LinkContainer to="/">
         <Navbar.Brand>R . M . G .</Navbar.Brand>
       </LinkContainer>
-      <Nav className="mr-auto">
+      <Nav className="ml-auto">
         <LinkContainer to="/">
-          <Nav.Link>Home</Nav.Link>
+          <Nav.Link className="mr-4">Home</Nav.Link>
         </LinkContainer>
-        <LinkContainer to="/characters">
-          <Nav.Link>Characters</Nav.Link>
-        </LinkContainer>
-        <LinkContainer to="/episodes">
-          <Nav.Link>Episodes</Nav.Link>
-        </LinkContainer>
-        <LinkContainer to="/locations">
-          <Nav.Link>Locations</Nav.Link>
-        </LinkContainer>
+        <NavDropdown title="Browse Rick & Morty" id="basic-nav-dropdown">
+          <LinkContainer to="/characters">
+            <NavDropdown.Item>Characters</NavDropdown.Item>
+          </LinkContainer>
+          <LinkContainer to="/episodes">
+            <NavDropdown.Item>Episodes</NavDropdown.Item>
+          </LinkContainer>
+          <LinkContainer to="/locations">
+            <NavDropdown.Item>Locations</NavDropdown.Item>
+          </LinkContainer>
+        </NavDropdown>
       </Nav>
-      <Form inline>
-        <FormControl type="text" placeholder="Search" className="mr-sm-2" />
-        <Button variant="outline-info">Search</Button>
-      </Form>
     </Navbar>
   );
 }
