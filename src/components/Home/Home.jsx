@@ -1,6 +1,7 @@
-import React, { Component } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import "./home.css";
+import Search from "../Search/Search";
 
 export default function Home(props) {
   return (
@@ -25,6 +26,7 @@ export default function Home(props) {
           <Link to="/dimensions">known dimensions</Link>
         </li>
       </ul>
+      <Search />
     </div>
   );
 }
