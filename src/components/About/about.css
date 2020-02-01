@@ -1,0 +1,17 @@
+.aboutCard {
+  display: inline-block;
+  margin: 50px;
+}
+.aboutGlootieImg {
+  max-width: 250px;
+}
+.aboutGlootieImg,
+.aboutRobinImg {
+  height: 250px;
+  border-radius: 100%;
+  margin: 0 0 20px 0;
+}
+.aboutCaption {
+  max-width: 200px;
+  margin: auto;
+}
