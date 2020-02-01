@@ -6,6 +6,7 @@ import Col from "react-bootstrap/Col";
 
 export default class Search extends Component {
   state = {
+    subject: "char",
     searchQuery: ""
   };
 
@@ -17,7 +18,10 @@ export default class Search extends Component {
     });
   };
 
-  handleSubmit = () => {};
+  handleSubmit = event => {
+    event.preventDefault();
+    console.log("submit test!");
+  };
   render() {
     return (
       <Form onSubmit={this.handleSubmit}>
@@ -26,10 +30,14 @@ export default class Search extends Component {
           <Col></Col>
           <Col>
             <Form.Group>
-              <Form.Control as="select">
-                <option>Characters</option>
-                <option>Episodes</option>
-                <option>Locations</option>
+              <Form.Control
+                name="subject"
+                value={this.state.subject}
+                onChange={this.handleChange}
+                as="select">
+                <option value="char">Characters</option>
+                <option value="ep">Episodes</option>
+                <option value="loc">Locations</option>
               </Form.Control>
             </Form.Group>
           </Col>
