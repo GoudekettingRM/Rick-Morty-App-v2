@@ -5,10 +5,7 @@ import {
   setPageAndEntryCount,
   setNextPrevPage
 } from "../../store/pagination/paginationActions";
-import {
-  setNewRickMortyData,
-  clearOldRickMortyData
-} from "../../store/rickMortyData/rickMortyDataActions";
+import { setNewRickMortyData } from "../../store/rickMortyData/rickMortyDataActions";
 import EpisodeCard from "../EpisodeCard/EpisodeCard";
 
 class EpisodeList extends Component {
@@ -23,6 +20,7 @@ class EpisodeList extends Component {
     );
     this.props.dispatch(setNewRickMortyData(episodes.results));
   };
+
   render() {
     console.log("render of episode list", this.props);
     const { episodes } = this.props;
