@@ -1,8 +1,13 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { turnOffRedirect } from "../../store/search/searchActions";
+import {
+  turnOffRedirect,
+  setOnSearchPageToFalse
+} from "../../store/search/searchActions";
 import CharacterCard from "../CharacterCard/CharacterCard";
 import EpisodeCard from "../EpisodeCard/EpisodeCard";
+import LocationCard from "../LocationCard/LocationCard";
+import Search from "../Search/Search";
 
 class SearchResultsPage extends Component {
   componentDidMount = () => {
@@ -10,30 +15,38 @@ class SearchResultsPage extends Component {
     console.log("props test in comp did mount", this.props);
   };
 
-  render() {
-    const loading = !this.props.searchResults;
+  componentWillUnmount = () => {
+    this.props.dispatch(setOnSearchPageToFalse());
+  };
 
-    if (loading) {
-      return <div> Loading search results...</div>;
-    }
-    if (this.props.searchSubject === "character") {
-      return this.props.searchResults.map((character, i) => (
-        <CharacterCard key={i} data={character} />
-      ));
-    }
-    if (this.props.searchSubject === "location") {
-      return this.props.searchResults.map((location, i) => (
-        <EpisodeCard key={i} data={location} />
-      ));
-    }
-    if (this.props.searchSubject === "episode") {
-      return this.props.searchResults.map((episode, i) => (
-        <EpisodeCard key={i} data={episode} />
-      ));
-    }
+  render() {
+    // const loading = this.props.searchResults.length === 0;
+
+    // if (loading) {
+    //   return <div> Loading search results...</div>;
+    // }
     console.log("render of search results page:", this.props);
 
-    return <div>Welcome to the search results page!</div>;
+    return (
+      <div>
+        <Search />
+        {this.props.searchSubject === "character"
+          ? this.props.searchResults.map((character, i) => (
+              <CharacterCard key={i} data={character} />
+            ))
+          : null}
+        {this.props.searchSubject === "location"
+          ? this.props.searchResults.map((location, i) => (
+              <LocationCard key={i} data={location} />
+            ))
+          : null}
+        {this.props.searchSubject === "episode"
+          ? this.props.searchResults.map((episode, i) => (
+              <EpisodeCard key={i} data={episode} />
+            ))
+          : null}
+      </div>
+    );
   }
 }
 

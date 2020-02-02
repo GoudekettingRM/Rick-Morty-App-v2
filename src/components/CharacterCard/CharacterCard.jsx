@@ -7,8 +7,10 @@ export default function CharacterCard(props) {
   return (
     <div className="card">
       <img className="cardImg" src={image} alt={name} />
-      <h3>{name}</h3>
-      <Link to={`/characters/${id}`}>More about {name}</Link>
+      <h5>{name}</h5>
+      <Link className="moreInfo" to={`/characters/${id}`}>
+        More about {name}
+      </Link>
     </div>
   );
 }

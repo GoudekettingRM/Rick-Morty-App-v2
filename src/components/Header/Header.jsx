@@ -25,6 +25,9 @@ export default function Header(props) {
             <NavDropdown.Item>Locations</NavDropdown.Item>
           </LinkContainer>
         </NavDropdown>
+        <LinkContainer to="/search">
+          <Nav.Link className="ml-4">Search</Nav.Link>
+        </LinkContainer>
       </Nav>
     </Navbar>
   );

@@ -5,7 +5,10 @@ import {
   setPageAndEntryCount,
   setNextPrevPage
 } from "../../store/pagination/paginationActions";
-import { setSearchResults } from "../../store/search/searchActions";
+import {
+  setSearchResults,
+  turnOffRedirect
+} from "../../store/search/searchActions";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import Row from "react-bootstrap/Row";
@@ -49,12 +52,22 @@ class Search extends Component {
     this.props.dispatch(
       setSearchResults(searchResults.results, this.state.subject)
     );
+    this.setState({
+      ...this.state,
+      searchQuery: ""
+    });
   };
 
   render() {
-    if (this.props.toSearchPage) {
-      return <Redirect to="/searchresults" />;
+    if (!this.props.onSearchPage) {
+      if (this.props.toSearchPage) {
+        return <Redirect to="/search" />;
+      }
     }
+    if (this.props.toSearchPage && !this.props.onSearchPage) {
+      this.props.dispatch(turnOffRedirect());
+    }
+
     return (
       <Form onSubmit={this.handleSubmit}>
         <Form.Label>What are you looking for?</Form.Label>
@@ -93,7 +106,8 @@ class Search extends Component {
 
 function mapStateToProps(reduxState) {
   return {
-    toSearchPage: reduxState.search.toSearchPage
+    toSearchPage: reduxState.search.toSearchPage,
+    onSearchPage: reduxState.search.onSearchPage
   };
 }
 

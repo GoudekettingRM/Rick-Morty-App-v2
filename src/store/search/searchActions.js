@@ -10,3 +10,9 @@ export function turnOffRedirect() {
     type: "search/TURN_OFF_REDIRECT"
   };
 }
+
+export function setOnSearchPageToFalse() {
+  return {
+    type: "search/SET_ON_SEARCH_PAGE_TO_FALSE"
+  };
+}
