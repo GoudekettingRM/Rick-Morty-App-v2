@@ -15,7 +15,7 @@ export default function Home(props) {
         src="https://i.pinimg.com/474x/78/84/1e/78841ebe0e2d748ed2f3e6d88ea5bf6f--rick-y-morty-rick-and-morty-art.jpg"
       />
       <p>You can look at the following Rick and Morty data:</p>
-      <ul className="informationList">
+      {/* <ul className="informationList">
         <li>
           <Link to="/characters">characters</Link>
         </li>
@@ -25,7 +25,7 @@ export default function Home(props) {
         <li>
           <Link to="/dimensions">known dimensions</Link>
         </li>
-      </ul>
+      </ul> */}
       <Search />
     </div>
   );

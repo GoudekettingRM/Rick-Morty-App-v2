@@ -6,6 +6,7 @@ import Footer from "./components/Footer/Footer";
 import { Switch, Route } from "react-router";
 import Home from "./components/Home/Home";
 import About from "./components/About/About";
+import SearchResultsPage from "./components/SearchResults/SearchResultsPage";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <Switch>
           <Route path="/" exact component={Home} />
           <Route path="/about" exact component={About} />
+          <Route path="/searchresults" exact component={SearchResultsPage} />
           <Route path="/contact" exact />
           <Route path="/support" exact />
         </Switch>

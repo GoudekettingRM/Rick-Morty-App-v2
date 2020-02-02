@@ -10,6 +10,7 @@ import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
+import { Redirect } from "react-router";
 
 class Search extends Component {
   state = {
@@ -47,7 +48,11 @@ class Search extends Component {
     );
     this.props.dispatch(setSearchResults(searchResults.results));
   };
+
   render() {
+    if (this.props.toSearchPage) {
+      return <Redirect to="/searchresults" />;
+    }
     return (
       <Form onSubmit={this.handleSubmit}>
         <Form.Label>What are you looking for?</Form.Label>
@@ -84,4 +89,10 @@ class Search extends Component {
   }
 }
 
-export default connect()(Search);
+function mapStateToProps(reduxState) {
+  return {
+    toSearchPage: reduxState.search.toSearchPage
+  };
+}
+
+export default connect(mapStateToProps)(Search);

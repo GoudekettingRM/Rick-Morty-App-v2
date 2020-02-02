@@ -3,6 +3,6 @@ import searchReducer from "./search/searchReducer";
 import paginationReducer from "./pagination/paginationReducer";
 
 export default combineReducers({
-  searchResults: searchReducer,
+  search: searchReducer,
   pagination: paginationReducer
 });
