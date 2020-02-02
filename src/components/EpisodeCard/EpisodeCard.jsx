@@ -6,9 +6,9 @@ export default function EpisodeCard(props) {
   const { episode, name, id, air_date } = props.data;
   return (
     <div className="card">
-      <h5>{episode}</h5>
+      <h5>{name}</h5>
       <p>
-        {name} <br /> {air_date}
+        {episode} <br /> {air_date}
       </p>
       <Link className="moreInfo" to={`/episodes/${id}`}>
         More about {episode}

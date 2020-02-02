@@ -23,9 +23,10 @@ export default function searchReducer(state = initialState, action) {
         onSearchPage: true
       };
     }
-    case "search/SET_ON_SEARCH_PAGE_TO_FALSE": {
+    case "search/LEAVE_SEARCH_PAGE": {
       return {
         ...state,
+        results: [],
         onSearchPage: false
       };
     }

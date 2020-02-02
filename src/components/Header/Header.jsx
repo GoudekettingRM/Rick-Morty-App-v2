@@ -14,7 +14,7 @@ export default function Header(props) {
         <LinkContainer to="/">
           <Nav.Link className="mr-4">Home</Nav.Link>
         </LinkContainer>
-        <NavDropdown title="Browse Rick & Morty" id="basic-nav-dropdown">
+        <NavDropdown title="Browse" id="basic-nav-dropdown">
           <LinkContainer to="/characters">
             <NavDropdown.Item>Characters</NavDropdown.Item>
           </LinkContainer>

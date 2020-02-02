@@ -13,6 +13,6 @@ export function turnOffRedirect() {
 
 export function setOnSearchPageToFalse() {
   return {
-    type: "search/SET_ON_SEARCH_PAGE_TO_FALSE"
+    type: "search/LEAVE_SEARCH_PAGE"
   };
 }
