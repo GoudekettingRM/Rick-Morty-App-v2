@@ -9,6 +9,7 @@ import {
   setNewRickMortyData,
   clearOldRickMortyData
 } from "../../store/rickMortyData/rickMortyDataActions";
+import EpisodeCard from "../EpisodeCard/EpisodeCard";
 
 class EpisodeList extends Component {
   componentDidMount = async () => {
@@ -34,7 +35,9 @@ class EpisodeList extends Component {
     }
     return (
       <div>
-        <p>list of episodes here</p>
+        {episodes.map((episode, i) => (
+          <EpisodeCard key={i} data={episode} />
+        ))}
       </div>
     );
   }
