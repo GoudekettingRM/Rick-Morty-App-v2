@@ -1,7 +1,11 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { searchApi } from "../../api";
-import { setPageAndEntryCount } from "../../store/search/searchActions";
+import {
+  setPageAndEntryCount,
+  setNextPrevPage
+} from "../../store/pagination/paginationActions";
+import { setSearchResults } from "../../store/search/searchActions";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import Row from "react-bootstrap/Row";
@@ -28,6 +32,11 @@ class Search extends Component {
     this.props.dispatch(
       setPageAndEntryCount(searchResults.info.pages, searchResults.info.count)
     );
+    this.props.dispatch(
+      setNextPrevPage(searchResults.info.next, searchResults.info.prev)
+    );
+    this.props.dispatch(setSearchResults(searchResults.results));
+
     console.log("search results test", searchResults);
   };
   render() {
