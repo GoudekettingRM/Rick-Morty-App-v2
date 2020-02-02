@@ -1,26 +1,30 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
+import { searchApi } from "../../api";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 
-export default class Search extends Component {
+class Search extends Component {
   state = {
-    subject: "char",
+    subject: "character",
     searchQuery: ""
   };
 
   handleChange = event => {
-    console.log("input test", event.target.name, event.target.value);
-
     this.setState({
       [event.target.name]: event.target.value
     });
   };
 
-  handleSubmit = event => {
+  handleSubmit = async event => {
     event.preventDefault();
-    console.log("submit test!");
+    const searchResults = await searchApi(
+      this.state.subject,
+      this.state.searchQuery
+    );
+    console.log("search results test", searchResults);
   };
   render() {
     return (
@@ -35,9 +39,9 @@ export default class Search extends Component {
                 value={this.state.subject}
                 onChange={this.handleChange}
                 as="select">
-                <option value="char">Characters</option>
-                <option value="ep">Episodes</option>
-                <option value="loc">Locations</option>
+                <option value="character">Characters</option>
+                <option value="episode">Episodes</option>
+                <option value="location">Locations</option>
               </Form.Control>
             </Form.Group>
           </Col>
@@ -58,3 +62,5 @@ export default class Search extends Component {
     );
   }
 }
+
+export default connect()(Search);

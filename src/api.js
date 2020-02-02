@@ -5,7 +5,7 @@ export async function api(endpoint) {
   return parsedData;
 }
 
-export async function searchByNameApi(endpoint, searchQuery) {
+export async function searchApi(endpoint, searchQuery) {
   const data = await fetch(
     `https://rickandmortyapi.com/api/${endpoint}/?name=${searchQuery}`
   );
