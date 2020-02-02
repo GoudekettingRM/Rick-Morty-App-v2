@@ -7,9 +7,9 @@ import { Switch, Route } from "react-router";
 import Home from "./components/Home/Home";
 import About from "./components/About/About";
 import SearchResultsPage from "./components/SearchResults/SearchResultsPage";
-import CharactersList from "./components/CharactersPage/CharactersList";
-import EpisodeList from "./components/EpisodePage/EpisodeList";
-import LocationList from "./components/LocationPage/LocationList";
+import CharactersList from "./components/RickMortyDataPage/CharactersList";
+import EpisodeList from "./components/RickMortyDataPage/EpisodeList";
+import LocationList from "./components/RickMortyDataPage/LocationList";
 
 function App() {
   return (

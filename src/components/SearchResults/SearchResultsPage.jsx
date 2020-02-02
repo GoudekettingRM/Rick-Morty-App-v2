@@ -4,9 +4,9 @@ import {
   turnOffRedirect,
   setOnSearchPageToFalse
 } from "../../store/search/searchActions";
-import CharacterCard from "../CharacterCard/CharacterCard";
-import EpisodeCard from "../EpisodeCard/EpisodeCard";
-import LocationCard from "../LocationCard/LocationCard";
+import CharacterCard from "../Cards/CharacterCard";
+import EpisodeCard from "../Cards/EpisodeCard";
+import LocationCard from "../Cards/LocationCard";
 import Search from "../Search/Search";
 
 class SearchResultsPage extends Component {

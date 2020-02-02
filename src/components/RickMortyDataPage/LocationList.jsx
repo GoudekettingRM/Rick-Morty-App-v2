@@ -6,12 +6,12 @@ import {
   setNextPrevPage
 } from "../../store/pagination/paginationActions";
 import { setNewRickMortyData } from "../../store/rickMortyData/rickMortyDataActions";
-import LocationCard from "../LocationCard/LocationCard";
+import LocationCard from "../Cards/LocationCard";
 
 class LocationList extends Component {
   componentDidMount = async () => {
     const locations = await api("location");
-    console.log("locations test:", locations);
+    // console.log("locations test:", locations);
     this.props.dispatch(
       setPageAndEntryCount(locations.info.pages, locations.info.count)
     );
@@ -22,9 +22,8 @@ class LocationList extends Component {
   };
 
   render() {
-    console.log("render of locations list", this.props);
+    // console.log("render of locations list", this.props);
     const { locations } = this.props;
-    console.log("characters test", locations[0]);
 
     if (
       locations.length === 0 ||
@@ -35,10 +34,12 @@ class LocationList extends Component {
     }
 
     return (
-      <div>
-        {locations.map((locations, i) => (
-          <LocationCard key={i} data={locations} />
-        ))}
+      <div className="flex">
+        <div className="parentDiv">
+          {locations.map((locations, i) => (
+            <LocationCard key={i} data={locations} />
+          ))}
+        </div>
       </div>
     );
   }

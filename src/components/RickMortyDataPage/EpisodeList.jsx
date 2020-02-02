@@ -6,12 +6,13 @@ import {
   setNextPrevPage
 } from "../../store/pagination/paginationActions";
 import { setNewRickMortyData } from "../../store/rickMortyData/rickMortyDataActions";
-import EpisodeCard from "../EpisodeCard/EpisodeCard";
+import EpisodeCard from "../Cards/EpisodeCard";
+import "./list.css";
 
 class EpisodeList extends Component {
   componentDidMount = async () => {
     const episodes = await api("episode");
-    console.log("episodes test:", episodes);
+    // console.log("episodes test:", episodes);
     this.props.dispatch(
       setPageAndEntryCount(episodes.info.pages, episodes.info.count)
     );
@@ -22,7 +23,7 @@ class EpisodeList extends Component {
   };
 
   render() {
-    console.log("render of episode list", this.props);
+    // console.log("render of episode list", this.props);
     const { episodes } = this.props;
     if (
       episodes.length === 0 ||
@@ -32,10 +33,12 @@ class EpisodeList extends Component {
       return <div>Loading...</div>;
     }
     return (
-      <div>
-        {episodes.map((episode, i) => (
-          <EpisodeCard key={i} data={episode} />
-        ))}
+      <div className="flex">
+        <div className="parentDiv">
+          {episodes.map((episode, i) => (
+            <EpisodeCard key={i} data={episode} />
+          ))}
+        </div>
       </div>
     );
   }

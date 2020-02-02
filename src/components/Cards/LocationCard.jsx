@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import "../CharacterCard/card.css";
+import "./card.css";
 
 export default function LocationCard(props) {
   const { dimension, name, id } = props.data;

@@ -6,12 +6,13 @@ import {
   setNextPrevPage
 } from "../../store/pagination/paginationActions";
 import { setNewRickMortyData } from "../../store/rickMortyData/rickMortyDataActions";
-import CharacterCard from "../CharacterCard/CharacterCard";
+import CharacterCard from "../Cards/CharacterCard";
+import "./list.css";
 
 class CharactersList extends Component {
   componentDidMount = async () => {
     const characters = await api("character");
-    console.log("characters test:", characters);
+    // console.log("characters test:", characters);
     this.props.dispatch(
       setPageAndEntryCount(characters.info.pages, characters.info.count)
     );
@@ -22,9 +23,8 @@ class CharactersList extends Component {
   };
 
   render() {
-    console.log("render of character list", this.props);
+    // console.log("render of character list", this.props);
     const { characters } = this.props;
-    console.log("characters test", characters[0]);
 
     if (
       characters.length === 0 ||
@@ -35,10 +35,12 @@ class CharactersList extends Component {
     }
 
     return (
-      <div>
-        {characters.map((character, i) => (
-          <CharacterCard key={i} data={character} />
-        ))}
+      <div className="flex">
+        <div className="parentDiv">
+          {characters.map((character, i) => (
+            <CharacterCard key={i} data={character} />
+          ))}
+        </div>
       </div>
     );
   }
