@@ -1,4 +1,8 @@
 .card {
   width: 12rem;
-  margin: 20px auto;
+  margin: 10px auto;
+}
+.epCard {
+  width: 16rem;
+  margin: 10px auto;
 }
