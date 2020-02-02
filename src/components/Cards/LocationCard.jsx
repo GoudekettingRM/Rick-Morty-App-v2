@@ -1,15 +1,21 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import "./card.css";
+import Card from "react-bootstrap/Card";
+import Button from "react-bootstrap/Button";
+import { LinkContainer } from "react-router-bootstrap";
 
 export default function LocationCard(props) {
   const { name, id } = props.data;
   return (
-    <div className="card">
-      <h5>{name}</h5>
-      <Link className="moreInfo" to={`/locations/${id}`}>
-        More about {name}
-      </Link>
-    </div>
+    <Card className="epCard">
+      <Card.Body className="d-flex flex-column">
+        <Card.Title>{name}</Card.Title>
+        <LinkContainer to={`/locations/${id}`}>
+          <Button className="mt-auto" variant="outline-secondary">
+            Read more
+          </Button>
+        </LinkContainer>
+      </Card.Body>
+    </Card>
   );
 }
