@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { turnOffRedirect } from "../../store/search/searchActions";
 import CharacterCard from "../CharacterCard/CharacterCard";
+import EpisodeCard from "../EpisodeCard/EpisodeCard";
 
 class SearchResultsPage extends Component {
   componentDidMount = () => {
@@ -20,13 +21,21 @@ class SearchResultsPage extends Component {
         <CharacterCard key={i} data={character} />
       ));
     }
+    if (this.props.searchSubject === "location") {
+      return this.props.searchResults.map((location, i) => (
+        <EpisodeCard key={i} data={location} />
+      ));
+    }
+    if (this.props.searchSubject === "episode") {
+      return this.props.searchResults.map((episode, i) => (
+        <EpisodeCard key={i} data={episode} />
+      ));
+    }
     console.log("render of search results page:", this.props);
 
     return <div>Welcome to the search results page!</div>;
   }
 }
-
-// for characters, render a card for each result: image, name, id
 
 function mapStateToProps(reduxState) {
   return {
