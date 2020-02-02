@@ -7,7 +7,6 @@ export default function LocationCard(props) {
   return (
     <div className="card">
       <h5>{name}</h5>
-      <p>{dimension}</p>
       <Link className="moreInfo" to={`/locations/${id}`}>
         More about {name}
       </Link>

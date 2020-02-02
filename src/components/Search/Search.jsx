@@ -76,6 +76,7 @@ class Search extends Component {
           <Col>
             <Form.Group>
               <Form.Control
+                className="input"
                 name="subject"
                 value={this.state.subject}
                 onChange={this.handleChange}
@@ -92,7 +93,7 @@ class Search extends Component {
               placeholder="Search"
               value={this.state.searchQuery}
               name="searchQuery"
-              className="search"
+              className="search input"
               onChange={this.handleChange}
             />
           </Col>

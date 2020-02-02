@@ -18,3 +18,8 @@ main {
 .pageTitle {
   margin-top: 15px;
 }
+
+.input {
+  width: 200px;
+  margin: 0 auto;
+}

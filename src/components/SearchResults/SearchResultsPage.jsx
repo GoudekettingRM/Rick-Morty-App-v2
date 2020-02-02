@@ -28,23 +28,25 @@ class SearchResultsPage extends Component {
     console.log("render of search results page:", this.props);
 
     return (
-      <div>
+      <div className="flex">
         <Search />
-        {this.props.searchSubject === "character"
-          ? this.props.searchResults.map((character, i) => (
-              <CharacterCard key={i} data={character} />
-            ))
-          : null}
-        {this.props.searchSubject === "location"
-          ? this.props.searchResults.map((location, i) => (
-              <LocationCard key={i} data={location} />
-            ))
-          : null}
-        {this.props.searchSubject === "episode"
-          ? this.props.searchResults.map((episode, i) => (
-              <EpisodeCard key={i} data={episode} />
-            ))
-          : null}
+        <div className="parentDiv">
+          {this.props.searchSubject === "character"
+            ? this.props.searchResults.map((character, i) => (
+                <CharacterCard key={i} data={character} />
+              ))
+            : null}
+          {this.props.searchSubject === "location"
+            ? this.props.searchResults.map((location, i) => (
+                <LocationCard key={i} data={location} />
+              ))
+            : null}
+          {this.props.searchSubject === "episode"
+            ? this.props.searchResults.map((episode, i) => (
+                <EpisodeCard key={i} data={episode} />
+              ))
+            : null}
+        </div>
       </div>
     );
   }
