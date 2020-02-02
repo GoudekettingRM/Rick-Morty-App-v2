@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { searchApi } from "../../api";
+import { setPageAndEntryCount } from "../../store/search/searchActions";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import Row from "react-bootstrap/Row";
@@ -23,6 +24,9 @@ class Search extends Component {
     const searchResults = await searchApi(
       this.state.subject,
       this.state.searchQuery
+    );
+    this.props.dispatch(
+      setPageAndEntryCount(searchResults.info.pages, searchResults.info.count)
     );
     console.log("search results test", searchResults);
   };

@@ -1,15 +1,6 @@
 import { combineReducers } from "redux";
+import searchReducer from "./search/searchReducer";
 
 export default combineReducers({
-  startTestReducer: startReducer
+  searchResults: searchReducer
 });
-
-function startReducer(state = null, action) {
-  switch (action.type) {
-    case "yes": {
-      return "yes";
-    }
-    default:
-      return null;
-  }
-}
