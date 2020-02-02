@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { api } from "../../api";
 import { setNextPrevPage } from "../../store/pagination/paginationActions";
 import { setNewRickMortyData } from "../../store/rickMortyData/rickMortyDataActions";
+import { Button } from "react-bootstrap";
 
 class PageNavigation extends Component {
   handleNext = async () => {
@@ -25,14 +26,20 @@ class PageNavigation extends Component {
     return (
       <div>
         {this.props.previousPage ? (
-          <button className="pageBtn" onClick={this.handlePrevious}>
+          <Button
+            className="previousPageBtn"
+            variant="outline-secondary"
+            onClick={this.handlePrevious}>
             Previous Page
-          </button>
+          </Button>
         ) : null}
         {this.props.nextPage ? (
-          <button className="pageBtn" onClick={this.handleNext}>
+          <Button
+            className="nextPageBtn"
+            variant="outline-secondary"
+            onClick={this.handleNext}>
             Next Page
-          </button>
+          </Button>
         ) : null}
       </div>
     );

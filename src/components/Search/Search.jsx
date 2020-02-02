@@ -99,7 +99,9 @@ class Search extends Component {
           </Col>
           <Col></Col>
         </Row>
-        <Button type="submit">Search!</Button>
+        <Button variant="outline-secondary" type="submit">
+          Search!
+        </Button>
       </Form>
     );
   }

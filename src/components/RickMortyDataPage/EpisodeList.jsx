@@ -8,6 +8,7 @@ import {
 import { setNewRickMortyData } from "../../store/rickMortyData/rickMortyDataActions";
 import EpisodeCard from "../Cards/EpisodeCard";
 import "./list.css";
+import PageNavigation from "../PageNavigation/PageNavigation";
 
 class EpisodeList extends Component {
   componentDidMount = async () => {
@@ -34,11 +35,13 @@ class EpisodeList extends Component {
     }
     return (
       <div className="flex">
+        <PageNavigation />
         <div className="parentDiv">
           {episodes.map((episode, i) => (
             <EpisodeCard key={i} data={episode} />
           ))}
         </div>
+        <PageNavigation />
       </div>
     );
   }

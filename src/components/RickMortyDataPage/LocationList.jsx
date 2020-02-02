@@ -7,6 +7,7 @@ import {
 } from "../../store/pagination/paginationActions";
 import { setNewRickMortyData } from "../../store/rickMortyData/rickMortyDataActions";
 import LocationCard from "../Cards/LocationCard";
+import PageNavigation from "../PageNavigation/PageNavigation";
 
 class LocationList extends Component {
   componentDidMount = async () => {
@@ -35,11 +36,13 @@ class LocationList extends Component {
 
     return (
       <div className="flex">
+        <PageNavigation />
         <div className="parentDiv">
           {locations.map((locations, i) => (
             <LocationCard key={i} data={locations} />
           ))}
         </div>
+        <PageNavigation />
       </div>
     );
   }
