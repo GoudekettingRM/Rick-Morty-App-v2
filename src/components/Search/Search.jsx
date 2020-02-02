@@ -29,6 +29,16 @@ class Search extends Component {
       this.state.subject,
       this.state.searchQuery
     );
+
+    console.log("search results test", searchResults);
+    if (searchResults.error) {
+      alert("There were no results for your search. Try something else.");
+      this.setState({
+        ...this.state,
+        searchQuery: ""
+      });
+      return;
+    }
     this.props.dispatch(
       setPageAndEntryCount(searchResults.info.pages, searchResults.info.count)
     );
@@ -36,8 +46,6 @@ class Search extends Component {
       setNextPrevPage(searchResults.info.next, searchResults.info.prev)
     );
     this.props.dispatch(setSearchResults(searchResults.results));
-
-    console.log("search results test", searchResults);
   };
   render() {
     return (

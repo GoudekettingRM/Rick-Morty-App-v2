@@ -6,10 +6,14 @@ export async function api(endpoint) {
 }
 
 export async function searchApi(endpoint, searchQuery) {
-  const data = await fetch(
-    `https://rickandmortyapi.com/api/${endpoint}/?name=${searchQuery}`
-  );
-  const parsedData = await data.json();
+  try {
+    const data = await fetch(
+      `https://rickandmortyapi.com/api/${endpoint}/?name=${searchQuery}`
+    );
+    const parsedData = await data.json();
 
-  return parsedData;
+    return parsedData;
+  } catch (error) {
+    console.error("error message", error);
+  }
 }
