@@ -2,7 +2,7 @@ const initialState = {
   pageCount: 0,
   entryCount: 0,
   nextPage: "",
-  previousPage: ""
+  prevPage: ""
 };
 
 export default function paginationReducer(state = initialState, action) {

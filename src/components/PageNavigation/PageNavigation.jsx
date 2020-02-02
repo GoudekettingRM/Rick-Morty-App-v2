@@ -1,13 +1,23 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { api } from "../../api";
+import { setNextPrevPage } from "../../store/pagination/paginationActions";
+import { setNewRickMortyData } from "../../store/rickMortyData/rickMortyDataActions";
 
 class PageNavigation extends Component {
-  handleNext = () => {
-    console.log("hi from next");
+  handleNext = async () => {
+    const newData = await api(this.props.nextPage.substring(32));
+    console.log("new data test:", newData);
+
+    this.props.dispatch(setNextPrevPage(newData.info.next, newData.info.prev));
+
+    this.props.dispatch(setNewRickMortyData(newData.results));
   };
+
   handlePrevious = () => {
     console.log("hi from previous");
   };
+
   render() {
     return (
       <div>

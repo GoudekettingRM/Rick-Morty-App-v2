@@ -37,13 +37,13 @@ class CharactersList extends Component {
 
     return (
       <div className="flex">
-        <PageNavigation />
+        <PageNavigation subject="character" />
         <div className="parentDiv">
           {characters.map((character, i) => (
             <CharacterCard key={i} data={character} />
           ))}
         </div>
-        <PageNavigation />
+        <PageNavigation subject="character" />
       </div>
     );
   }
