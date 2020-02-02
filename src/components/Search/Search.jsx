@@ -46,7 +46,9 @@ class Search extends Component {
     this.props.dispatch(
       setNextPrevPage(searchResults.info.next, searchResults.info.prev)
     );
-    this.props.dispatch(setSearchResults(searchResults.results));
+    this.props.dispatch(
+      setSearchResults(searchResults.results, this.state.subject)
+    );
   };
 
   render() {
