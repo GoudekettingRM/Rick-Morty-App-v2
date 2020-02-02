@@ -9,7 +9,7 @@ export default function EpisodeCard(props) {
   return (
     <Card className="epCard">
       <Card.Body className="d-flex flex-column">
-        <Card.Title style={{ color: "maroon" }}>{name}</Card.Title>
+        <Card.Title>{name}</Card.Title>
         <Card.Subtitle className="mt-auto mb-2 text-muted">
           {episode}
         </Card.Subtitle>
