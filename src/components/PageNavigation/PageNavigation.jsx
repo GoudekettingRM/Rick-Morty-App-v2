@@ -7,15 +7,18 @@ import { setNewRickMortyData } from "../../store/rickMortyData/rickMortyDataActi
 class PageNavigation extends Component {
   handleNext = async () => {
     const newData = await api(this.props.nextPage.substring(32));
-    console.log("new data test:", newData);
 
     this.props.dispatch(setNextPrevPage(newData.info.next, newData.info.prev));
 
     this.props.dispatch(setNewRickMortyData(newData.results));
   };
 
-  handlePrevious = () => {
-    console.log("hi from previous");
+  handlePrevious = async () => {
+    const newData = await api(this.props.previousPage.substring(32));
+
+    this.props.dispatch(setNextPrevPage(newData.info.next, newData.info.prev));
+
+    this.props.dispatch(setNewRickMortyData(newData.results));
   };
 
   render() {
