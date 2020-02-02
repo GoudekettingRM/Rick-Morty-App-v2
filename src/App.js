@@ -8,6 +8,7 @@ import Home from "./components/Home/Home";
 import About from "./components/About/About";
 import SearchResultsPage from "./components/SearchResults/SearchResultsPage";
 import CharactersList from "./components/CharactersPage/CharactersList";
+import EpisodeList from "./components/EpisodePage/EpisodeList";
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
           <Route path="/about" exact component={About} />
           <Route path="/search" exact component={SearchResultsPage} />
           <Route path="/characters" exact component={CharactersList} />
+          <Route path="/episodes" exact component={EpisodeList} />
           <Route path="/contact" exact />
           <Route path="/support" exact />
         </Switch>

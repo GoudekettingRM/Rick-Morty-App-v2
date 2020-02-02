@@ -6,6 +6,7 @@ import {
   setNextPrevPage
 } from "../../store/pagination/paginationActions";
 import { setNewRickMortyData } from "../../store/rickMortyData/rickMortyDataActions";
+import CharacterCard from "../CharacterCard/CharacterCard";
 
 class CharactersList extends Component {
   componentDidMount = async () => {
@@ -21,16 +22,32 @@ class CharactersList extends Component {
   };
 
   render() {
+    console.log("render of character list", this.props);
+    const { characters } = this.props;
+    console.log("characters test", characters[0]);
+
+    if (
+      characters.length === 0 ||
+      characters[0].hasOwnProperty("air_date") ||
+      characters[0].hasOwnProperty("dimension")
+    ) {
+      return <div>Loading...</div>;
+    }
+
     return (
       <div>
-        <p>list of characters here</p>
+        {characters.map((character, i) => (
+          <CharacterCard key={i} data={character} />
+        ))}
       </div>
     );
   }
 }
 
 function mapStateToProps(reduxState) {
-  return {};
+  return {
+    characters: reduxState.rickMortyData
+  };
 }
 
 export default connect(mapStateToProps)(CharactersList);

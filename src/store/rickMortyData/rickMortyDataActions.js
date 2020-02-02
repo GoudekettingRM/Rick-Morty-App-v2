@@ -4,3 +4,9 @@ export function setNewRickMortyData(newData) {
     payload: newData
   };
 }
+
+export function clearOldRickMortyData() {
+  return {
+    type: "rickMortyData/CLEAR"
+  };
+}
