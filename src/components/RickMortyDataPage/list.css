@@ -2,6 +2,7 @@
   display: flex;
   justify-content: center;
   flex-flow: row wrap;
+  margin: 30px;
 }
 
 .parentDiv {
@@ -9,4 +10,5 @@
   justify-content: center;
   flex-flow: row wrap;
   text-align: center;
+  margin: 20px;
 }
